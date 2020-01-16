@@ -6,7 +6,7 @@ function Maps(props){
     <div className="box">
       <div className="box--img">
         <img src={imgOne} alt="" />
-        <div className="block--img">400m</div>
+        <div className="block--img">400mm</div>
       </div>
       <div className="box--text">
         <p>Name: {props.name}</p>
