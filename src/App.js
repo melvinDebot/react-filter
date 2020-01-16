@@ -1,34 +1,53 @@
 import React from 'react';
-import './App.scss';
-import SearchBox from './Components/SearchBox';
-import Maps from './Components/Maps';
-import MapsList from './Components/MapsList';
+import './App.scss'
+import Carte from './Components/Carte';
+import List from './Components/List';
+import Filter from './Components/Filter';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      dogs : [
-        {name : 'La Grande Cuisine', breed : "Mer. 14h-16h", meter : "400m"},
-        {name : 'Chez Pierrot', breed : "Mer. 12h-15h"},
-        {name : 'Le Bon Chef ', breed : "Mer. 12h-19h"},
-      ],
-      searchDog: ''
-    }
-  }
-  handleInput = (e) =>{
-    console.log(e.target.value)
-    this.setState({ searchDog : e.target.value})
-  }
-  render(){
-    let filter = this.state.dogs.filter((dog) => {
-      return dog.name.toLowerCase().includes(this.state.searchDog.toLowerCase())
-    })
+  render() {
     return(
       <div className="App">
-        <SearchBox handleInput={this.handleInput}/>
-        <h1>Restaurant</h1>
-        <MapsList filter={filter}/>
+        <Router>
+            <div className="button">
+              <div className="button-item btn_cart">
+                <Link to='./'>
+                  <p>Carte</p>
+                </Link>
+              </div>
+
+              <div className="button-item btn_list">
+                <Link to='./list'>
+                  <p>Liste</p>
+                </Link>
+              </div>
+            </div>
+
+            <div className="filter_container">
+              <Link to='./filter'>
+                <div className="filter_innerbox"></div>
+              </Link>
+            </div>
+
+          <Switch>
+            <Route path="/list">
+              <List />
+            </Route>
+            <Route path="/filter">
+              <Filter />
+            </Route>
+            <Route path="/">
+              <Carte />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     )
   }
