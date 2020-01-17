@@ -217,3 +217,15 @@ $primaryColor: #0885C2;
     background-color: $primaryColor;
   }
 }
+
+.category_bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  .category {
+    width: 4rem;
+    height: 4rem;
+    background-color: #546DE5;
+    border-radius: .3rem;
+  }
+}

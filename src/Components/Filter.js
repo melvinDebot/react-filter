@@ -79,7 +79,7 @@ import React from 'react';
 import './../App.scss';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-
+import TypeActivite from './TypeActivite';
 
 function valuetext(value) {
   return `${value}°C`;
@@ -108,6 +108,13 @@ export default function RangeSlider() {
     <div>
       <h1>Filtres</h1>
       <div className="filter_slider_container">
+
+        <div>
+          <div>
+            Type d'activité
+          </div>
+          <TypeActivite />
+        </div>
 
         <div className="filter_text_box">
           <Typography id="range-slider" gutterBottom>
@@ -161,8 +168,10 @@ export default function RangeSlider() {
           valueLabelDisplay="auto"
           aria-labelledby="range-slider"
           getAriaValueText={valuetext}
+          step={0.1}
         />
       </div>
+    
     </div>
   );
 }
