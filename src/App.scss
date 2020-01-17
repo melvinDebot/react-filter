@@ -203,13 +203,17 @@ $primaryColor: #0885C2;
     justify-content: space-between;
   }
 
-  .slider_filter {
+  .MuiSlider-track {
     width: 100%;
-    height: .25rem;
-    background-color: rgba(8, 133, 194, 0.5);
-    
-    .css-3g5hux-Slider, .css-2y8pfi-Slider:after {
-      background-color: $primaryColor;
-    }
+    height: 4px;
+  }
+
+  .MuiSlider-rail {
+    background-color: $primaryColor;
+    height: 4px;
+  }
+
+  .MuiSlider-track, .MuiSlider-thumb, .PrivateValueLabel-circle-54 {
+    background-color: $primaryColor;
   }
 }
